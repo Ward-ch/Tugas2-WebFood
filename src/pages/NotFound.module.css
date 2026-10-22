@@ -1,0 +1,85 @@
+.page {
+  min-height: 69vh;
+  padding: 55px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgb(255 241 231 / 75%), transparent 42%);
+}
+
+.illustration {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #f5e6dc;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 14px 34px rgb(50 37 26 / 7%);
+  font-size: 36px;
+  transform: rotate(-8deg);
+}
+
+.code {
+  margin-top: 20px;
+  color: var(--orange);
+  font-family: Manrope, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.page h1 {
+  margin: 9px 0 8px;
+  font-family: Manrope, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.page p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.homeButton {
+  min-height: 45px;
+  margin-top: 22px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  color: white;
+  background: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 150ms ease;
+}
+
+.homeButton:hover {
+  background: var(--orange-dark);
+}
+
+.backLink {
+  margin-top: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.backLink:hover {
+  color: var(--orange-dark);
+}
+
+@media (max-width: 500px) {
+  .page h1 {
+    max-width: 320px;
+    font-size: 25px;
+  }
+}

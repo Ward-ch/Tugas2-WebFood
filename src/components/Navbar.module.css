@@ -1,0 +1,140 @@
+.header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(41 37 31 / 6%);
+  background: rgb(255 253 250 / 94%);
+  backdrop-filter: blur(14px);
+}
+
+.inner {
+  width: min(1160px, calc(100% - 56px));
+  height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: Manrope, sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--orange);
+}
+
+.brandDot {
+  color: var(--orange);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  margin-left: 55px;
+}
+
+.navLink {
+  padding: 28px 0 25px;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.navLink:hover,
+.active {
+  border-bottom-color: var(--orange);
+  color: var(--orange-dark);
+}
+
+.cartButton {
+  min-height: 42px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.cartButton:hover {
+  border-color: #f6c2ae;
+  background: #fff8f4;
+}
+
+.cartCount {
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--orange);
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .inner {
+    width: calc(100% - 32px);
+    height: 68px;
+  }
+
+  .brand {
+    gap: 7px;
+    font-size: 21px;
+  }
+
+  .logo {
+    width: 33px;
+    height: 33px;
+  }
+
+  .navigation {
+    gap: 18px;
+    margin-left: 0;
+  }
+
+  .navLink {
+    padding: 24px 0 21px;
+    font-size: 13px;
+  }
+
+  .cartButton {
+    width: 39px;
+    min-height: 39px;
+    justify-content: center;
+    padding: 0;
+    gap: 0;
+  }
+
+  .cartLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}

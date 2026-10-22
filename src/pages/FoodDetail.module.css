@@ -1,0 +1,272 @@
+.page {
+  min-height: 66vh;
+  padding: 38px 0 70px;
+}
+
+.container {
+  width: min(1060px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition: color 150ms ease;
+}
+
+.backLink:hover {
+  color: var(--orange-dark);
+}
+
+.detail {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1.03fr 0.97fr;
+  align-items: center;
+  gap: 58px;
+}
+
+.image {
+  height: 420px;
+  border-radius: 22px;
+}
+
+.photo {
+  object-position: center;
+}
+
+.info {
+  padding: 10px 0;
+}
+
+.category {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: #a94421;
+  background: #fff1e8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.info h1 {
+  margin: 15px 0 9px;
+  font-family: Manrope, sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  line-height: 1.16;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e5a025;
+  font-size: 12px;
+}
+
+.rating span {
+  margin-left: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.description {
+  margin-top: 22px;
+  color: #766e66;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.price {
+  margin-top: 23px;
+  color: var(--orange-dark);
+  font-family: Manrope, sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.orderRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 21px;
+}
+
+.quantity {
+  min-height: 49px;
+  padding: 0 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+}
+
+.quantity button {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: #fff7f1;
+  cursor: pointer;
+}
+
+.quantity button:hover {
+  color: var(--orange-dark);
+  background: #ffede3;
+}
+
+.quantity > span {
+  min-width: 23px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.addButton {
+  min-height: 49px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  background: var(--orange);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.addButton:hover {
+  transform: translateY(-1px);
+  background: var(--orange-dark);
+}
+
+.added {
+  background: var(--green);
+}
+
+.added:hover {
+  background: #3b6846;
+}
+
+.note {
+  margin-top: 19px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.note span {
+  color: var(--orange);
+  font-size: 16px;
+}
+
+.notFound {
+  min-height: 66vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.notFoundIcon {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 19px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: #fff1e8;
+  font-size: 31px;
+}
+
+.kicker {
+  color: var(--orange-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.notFound h1 {
+  margin: 9px 0 7px;
+  font-family: Manrope, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.notFound p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.backButton {
+  min-height: 43px;
+  margin-top: 20px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 11px;
+  color: white;
+  background: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.backButton:hover {
+  background: var(--orange-dark);
+}
+
+@media (max-width: 750px) {
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .image {
+    height: min(72vw, 380px);
+  }
+
+  .info h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .page {
+    padding-top: 25px;
+  }
+
+  .detail {
+    margin-top: 18px;
+  }
+
+  .orderRow {
+    flex-direction: column;
+  }
+
+  .quantity {
+    justify-content: space-between;
+  }
+}
