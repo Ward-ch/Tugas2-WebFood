@@ -1,5 +1,10 @@
 import { Search, SlidersHorizontal, UtensilsCrossed } from 'lucide-react'
 import { useMemo, useState } from 'react'
+import Button from '@mui/material/Button'
+import Chip from '@mui/material/Chip'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import TextField from '@mui/material/TextField'
 import { useSearchParams } from 'react-router-dom'
 import FoodCard from '../components/FoodCard'
 import { categories, foods } from '../data/foods'
@@ -47,26 +52,36 @@ function Menu() {
 
       <section className={styles.catalog} aria-label="Katalog makanan">
         <div className={styles.controls}>
-          <label className={styles.searchBox}>
-            <Search size={19} aria-hidden="true" />
-            <span className={styles.visuallyHidden}>Cari makanan</span>
-            <input
-              type="search"
-              placeholder="Cari nama makanan..."
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-            />
-            {query && (
-              <button
-                type="button"
-                className={styles.clearSearch}
-                onClick={() => setQuery('')}
-                aria-label="Hapus pencarian"
-              >
-                ×
-              </button>
-            )}
-          </label>
+          <TextField
+            className={styles.searchBox}
+            type="search"
+            size="small"
+            placeholder="Cari nama makanan..."
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            slotProps={{
+              htmlInput: { 'aria-label': 'Cari makanan' },
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Search size={19} aria-hidden="true" />
+                  </InputAdornment>
+                ),
+                endAdornment: query ? (
+                  <InputAdornment position="end">
+                    <IconButton
+                      type="button"
+                      size="small"
+                      onClick={() => setQuery('')}
+                      aria-label="Hapus pencarian"
+                    >
+                      ×
+                    </IconButton>
+                  </InputAdornment>
+                ) : null,
+              },
+            }}
+          />
           <span className={styles.resultCount}>
             <SlidersHorizontal size={14} />
             {filteredFoods.length} menu tersedia
@@ -75,17 +90,16 @@ function Menu() {
 
         <div className={styles.filters} aria-label="Filter kategori">
           {categories.map((category) => (
-            <button
-              type="button"
-              className={`${styles.filter} ${
-                selectedCategory === category ? styles.selected : ''
-              }`}
+            <Chip
+              className={styles.filter}
               key={category}
+              label={category}
+              clickable
+              color={selectedCategory === category ? 'primary' : 'default'}
+              variant={selectedCategory === category ? 'filled' : 'outlined'}
               aria-pressed={selectedCategory === category}
               onClick={() => selectCategory(category)}
-            >
-              {category}
-            </button>
+            />
           ))}
         </div>
 
@@ -98,15 +112,16 @@ function Menu() {
             <span className={styles.emptyIcon}><UtensilsCrossed size={26} /></span>
             <h2>Menu belum ditemukan</h2>
             <p>Coba kata kunci lain atau pilih kategori yang berbeda.</p>
-            <button
+            <Button
               type="button"
+              variant="contained"
               onClick={() => {
                 setQuery('')
                 selectCategory('Semua')
               }}
             >
               Tampilkan semua menu
-            </button>
+            </Button>
           </div>
         )}
       </section>

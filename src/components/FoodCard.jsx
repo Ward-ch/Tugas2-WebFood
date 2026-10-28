@@ -1,4 +1,6 @@
 import { ArrowUpRight, Star } from 'lucide-react'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
 import { Link } from 'react-router-dom'
 import FoodImage from './FoodImage'
 import { formatPrice } from '../utils/formatPrice'
@@ -6,7 +8,7 @@ import styles from './FoodCard.module.css'
 
 function FoodCard({ food }) {
   return (
-    <article className={styles.card}>
+    <Card component="article" className={styles.card} elevation={0}>
       <Link
         className={styles.imageLink}
         to={`/menu/${food.id}`}
@@ -31,17 +33,20 @@ function FoodCard({ food }) {
         <h3 className={styles.name}>{food.name}</h3>
         <div className={styles.bottom}>
           <span className={styles.price}>{formatPrice(food.price)}</span>
-          <Link
-            className={styles.details}
+          <Button
+            component={Link}
             to={`/menu/${food.id}`}
+            variant="text"
+            size="small"
+            className={styles.details}
+            endIcon={<ArrowUpRight size={16} />}
             aria-label={`View details: ${food.name}`}
           >
-            <span>Detail</span>
-            <ArrowUpRight size={16} />
-          </Link>
+            Detail
+          </Button>
         </div>
       </div>
-    </article>
+    </Card>
   )
 }
 

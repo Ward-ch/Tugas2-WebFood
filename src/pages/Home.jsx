@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import FoodCard from '../components/FoodCard'
 import FoodImage from '../components/FoodImage'
@@ -24,9 +25,15 @@ function Home() {
               Pilih makanan favoritmu dan nikmati hidangan lezat tanpa perlu
               repot.
             </p>
-            <Link className={styles.primaryButton} to="/menu">
-              Lihat Menu <ArrowRight size={16} />
-            </Link>
+            <Button
+              component={Link}
+              to="/menu"
+              variant="contained"
+              endIcon={<ArrowRight size={16} />}
+              className={styles.primaryButton}
+            >
+              Lihat Menu
+            </Button>
           </div>
           <FoodImage
             src={foods[0].image}
